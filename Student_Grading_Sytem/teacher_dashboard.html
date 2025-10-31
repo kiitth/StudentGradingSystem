@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Teacher Dashboard</h1>
+    <a href="php/logout.php">Logout</a>
+  </header>
+  <main>
+    <h2>Mark Attendance</h2>
+    <form action="php/attendance.php" method="POST">
+      <label>Course</label>
+      <select name="course">
+        <option value="CIS101">CIS 101</option>
+        <option value="CIS344">CIS 344</option>
+      </select>
+
+      <table>
+        <tr><th>Student</th><th>Status</th></tr>
+        <tr>
+          <td>John Doe</td>
+          <td>
+            <select name="status[]">
+              <option>Present</option><option>Absent</option><option>Late</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Mary Smith</td>
+          <td>
+            <select name="status[]">
+              <option>Present</option><option>Absent</option><option>Late</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <button type="submit">Submit Attendance</button>
+    </form>
+
+    <h2>Enter Grades</h2>
+    <form action="php/grades.php" method="POST">
+      <table>
+        <tr><th>Student</th><th>Grade</th></tr>
+        <tr><td>John Doe</td><td><input type="text" name="grade[]" placeholder="A, B+, etc."></td></tr>
+        <tr><td>Mary Smith</td><td><input type="text" name="grade[]" placeholder="A, B+, etc."></td></tr>
+      </table>
+      <button type="submit">Save Grades</button>
+    </form>
+  </main>
+</body>
+</html>
