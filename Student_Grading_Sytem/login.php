@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
-    if (password_verify($password, $user['password'])) {
+    if ($password === $user['password']) {
       $_SESSION['user_id'] = $user['id'];
       $_SESSION['role'] = $user['role'];
       header("Location: ../" . ($role === "teacher" ? "teacher_dashboard.html" : "student_dashboard.html"));
@@ -27,3 +27,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
+
